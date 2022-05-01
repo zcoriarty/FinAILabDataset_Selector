@@ -1,7 +1,10 @@
+get_all_tickers==1.8
 matplotlib==3.5.1
 numpy==1.22.3
 pandas==1.4.2
 pandas_datareader==0.10.0
 plotly==5.7.0
+st_btn_select==0.1.2
 streamlit==1.8.1
 yahoo_fin==0.8.9.1
+yahooquery==2.2.15
