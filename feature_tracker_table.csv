@@ -1,0 +1,8 @@
+Equities,Fixed Income,FX,Commodities,Crypto,Stock Fundamentals,Macroeconomics Data,News and Sentiments,Fin Datasets,Alt Data
+YFinance,YFinance,YFinance,YFinance,YFinance,YFinance,Alphavantage,Alphavantage,YFinance,YFinance
+Alphavantage,Alphavantage,Alphavantage,Quandl,Alphavantage,Quandl,Quandl,Quandl,Alphavantage,Alphavantage
+Quandl,Quandl,Pandas,Pandas,Quandl,Fundamental Analysis,FRED,FRED,Quandl,
+Fundamental Analysis,FRED,Oanda,Stooq,Pandas,Pandas,Pandas,Pandas,Fundamental Analysis,
+Pandas,,,IEX,Stooq,IEX,IEX,IEX,Pandas,
+Oanda,,,,IEX,FinViz,,FinViz,IEX,
+,,,,FinViz,,,,,
