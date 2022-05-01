@@ -8,6 +8,11 @@ import streamlit as st
 from datetime import datetime, timedelta
 import plotly.graph_objects as go
 import pandas_datareader.data as web
+from st_btn_select import st_btn_select
+
+# other files
+from tickers import Tickers as tk
+
 
 
 # periods to select
@@ -19,8 +24,8 @@ periods= pd.DataFrame(periodDict)
 # start and end date of the plot data 
 today = datetime.today().date()
 #########display pct and usd change next to the price####################
-Current= (si.get_data('AAPL', start_date=today, end_date=today))['close']
-openprice= (si.get_data('AAPL', start_date=today, end_date=today))['open']
+# Current= (si.get_data('AAPL', start_date=today, end_date=today))['close']
+# openprice= (si.get_data('AAPL', start_date=today, end_date=today))['open']
 
 # st.set_page_config(layout="wide")
 
@@ -99,9 +104,10 @@ def tab2():
     # added selectbox for data intervals
     intervalDict = {'IntervalButton':['Daily','Weekly','Monthly'],'IntervalCode':['1d','1wk','1mo']}
     intervals= pd.DataFrame(intervalDict)
-    time_interval_button = st.selectbox('Interval',intervals['IntervalButton'])
+    time_interval_button = st_btn_select((intervals['IntervalButton']))
+
     #added radio boxes to choose a graph type
-    plot_type = st.radio('Plot type',['Line','Candle'])
+    plot_type = st.radio('Plot type',['Candle','Line'])
    
 
     if plot_type =='Line':
@@ -317,10 +323,12 @@ def tab6():
 ######################################################################################################################################
 ######################################################################################################################################
 ######################################################################################################################################
- 
+
 #Creating a sidebar menu
 def run(): #function to run the entire dashboard at once
     
+    
+
     features = pd.read_csv('feature_tracker_table.csv')
     category_list = features.columns
     
@@ -333,8 +341,7 @@ def run(): #function to run the entire dashboard at once
     global ticker, category, source #move the ticker variable to global var names.
 
     category = st.sidebar.selectbox("Select a Category", category_list, index=0)
-    source = st.sidebar.selectbox("Select a Source", features.loc[:, category])
-    ticker = st.sidebar.selectbox("Select a Ticker", ticker_list, index=4)
+    ticker = st.sidebar.selectbox("Select a Ticker", tk.tickers_dict[category](), index=3)
     
     # Add a radio box
     select_tab = st.sidebar.radio("Select tab", ['Summary', 'Chart', 'Statistics','Financials','Analysis','Monte Carlo Simulation'])
