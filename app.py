@@ -48,8 +48,7 @@ def tab1():
     PageBeginning()
     #######################################################################################################
     #buttons to select desired period of data 
-    buttons_tab1 = st.selectbox("select period",periods['DurationText'])
-  
+    buttons_tab1 = st_btn_select((periods['DurationText']))
     ########################################################################################################
 
     #plots for each selected duration: 
@@ -107,7 +106,7 @@ def tab2():
     time_interval_button = st_btn_select((intervals['IntervalButton']))
 
     #added radio boxes to choose a graph type
-    plot_type = st.radio('Plot type',['Candle','Line'])
+    plot_type = st.radio('Plot type',['Candleselect','Line'])
    
 
     if plot_type =='Line':
