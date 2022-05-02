@@ -11,9 +11,9 @@ import pandas_datareader.data as web
 from st_btn_select import st_btn_select
 
 # other files
-from tickers import Tickers as tk
-from equities import Equities
-from home import Home
+from Categories.tickers import Tickers as tk
+from Categories.equities import Equities
+from Categories.home import Home
 
 # padding = 0
 # st.markdown(f""" <style>
